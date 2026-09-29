@@ -246,14 +246,32 @@ local function createZebraZ(cx: number, entryZ: number)
     end
 end
 
-createZebraX(-244 - 12, -102)
-createZebraX(-244 + 12, -102)
-createZebraZ(-244, -102 - 12)
-createZebraZ(-244, -102 + 12)
+-- 1. Center 4-way (-244, -102) - All 4 sides
+createZebraX(-244 - 12, -102) -- West
+createZebraX(-244 + 12, -102) -- East
+createZebraZ(-244, -102 - 12) -- North
+createZebraZ(-244, -102 + 12) -- South
 
-createZebraX(-169 + 12, -102)
-createZebraX(-169 - 12, -102)
-createZebraX(-319 + 12, -102)
+-- 2. Inner T / 4-way (-169, -102) - All 4 sides
+createZebraX(-169 - 12, -102) -- West
+createZebraX(-169 + 12, -102) -- East
+createZebraZ(-169, -102 - 12) -- North
+createZebraZ(-169, -102 + 12) -- South
+
+-- 3. Outer T (-319, -102) - All connecting sides (East, North, South)
+createZebraX(-319 + 12, -102) -- East
+createZebraZ(-319, -102 - 12) -- North
+createZebraZ(-319, -102 + 12) -- South
+
+-- 4. North Mid T (-244, -162) - All connecting sides (West, East, South)
+createZebraX(-244 - 12, -162) -- West
+createZebraX(-244 + 12, -162) -- East
+createZebraZ(-244, -162 + 12) -- South
+
+-- 5. South Mid T (-244, -42) - All connecting sides (West, East, North)
+createZebraX(-244 - 12, -42)  -- West
+createZebraX(-244 + 12, -42)  -- East
+createZebraZ(-244, -42 - 12)  -- North
 
 -- Helper for non-colliding dashed lines
 local function createDashPart(size: Vector3, cf: CFrame): Part

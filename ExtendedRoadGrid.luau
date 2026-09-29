@@ -274,26 +274,37 @@ local function createStopLineEW(cx: number, cz: number)
     createPart(markingsFolder, "StopLine", Vector3.new(0.8, 0.03, roadW/2 - 0.5), CFrame.new(cx, roadY + 0.05, cz), whitePaintCol, Enum.Material.SmoothPlastic)
 end
 
--- Central 4-Way Crosswalks & Stop Lines
-createCrosswalkNS(225, -112 - roadW/2 - 2.5)
-createCrosswalkNS(225, -112 + roadW/2 + 2.5)
-createCrosswalkEW(225 - roadW/2 - 2.5, -112)
-createCrosswalkEW(225 + roadW/2 + 2.5, -112)
+-- Central 4-Way Crosswalks & Stop Lines (All 4 sides)
+createCrosswalkNS(225, -112 - roadW/2 - 2.5) -- North side
+createCrosswalkNS(225, -112 + roadW/2 + 2.5) -- South side
+createCrosswalkEW(225 - roadW/2 - 2.5, -112) -- West side
+createCrosswalkEW(225 + roadW/2 + 2.5, -112) -- East side
 
 createStopLineNS(225 - roadW/4, -112 - roadW/2 - 0.8)
 createStopLineNS(225 + roadW/4, -112 + roadW/2 + 0.8)
 createStopLineEW(225 - roadW/2 - 0.8, -112 + roadW/4)
 createStopLineEW(225 + roadW/2 + 0.8, -112 - roadW/4)
 
--- West T-Junction Crosswalks
-createCrosswalkNS(150, -112 - roadW/2 - 2.5)
-createCrosswalkNS(150, -112 + roadW/2 + 2.5)
-createCrosswalkEW(150 + roadW/2 + 2.5, -112)
+-- West T-Junction Crosswalks (All 4 sides)
+createCrosswalkNS(150, -112 - roadW/2 - 2.5) -- North side
+createCrosswalkNS(150, -112 + roadW/2 + 2.5) -- South side
+createCrosswalkEW(150 - roadW/2 - 2.5, -112) -- West side (Approach Road)
+createCrosswalkEW(150 + roadW/2 + 2.5, -112) -- East side
 
--- East T-Junction Crosswalks
-createCrosswalkNS(300, -112 - roadW/2 - 2.5)
-createCrosswalkNS(300, -112 + roadW/2 + 2.5)
-createCrosswalkEW(300 - roadW/2 - 2.5, -112)
+-- East T-Junction Crosswalks (All connecting sides: North, South, West)
+createCrosswalkNS(300, -112 - roadW/2 - 2.5) -- North side
+createCrosswalkNS(300, -112 + roadW/2 + 2.5) -- South side
+createCrosswalkEW(300 - roadW/2 - 2.5, -112) -- West side
+
+-- North T-Junction Crosswalks (All connecting sides: West, East, South)
+createCrosswalkEW(225 - roadW/2 - 2.5, -172) -- West side
+createCrosswalkEW(225 + roadW/2 + 2.5, -172) -- East side
+createCrosswalkNS(225, -172 + roadW/2 + 2.5) -- South side
+
+-- South T-Junction Crosswalks (All connecting sides: West, East, North)
+createCrosswalkEW(225 - roadW/2 - 2.5, -52)  -- West side
+createCrosswalkEW(225 + roadW/2 + 2.5, -52)  -- East side
+createCrosswalkNS(225, -52 - roadW/2 - 2.5)  -- North side
 
 -- Dashed Centerlines
 local function createDashedLineEW(z: number, startX: number, endX: number)

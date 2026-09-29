@@ -1635,6 +1635,16 @@ createCrosswalkNS(0, 280 + crossRoadW/2 + 2.5, roadW)
 createCrosswalkEW(-roadW/2 - 2.5, 280, crossRoadW)
 createCrosswalkEW(roadW/2 + 2.5, 280, crossRoadW)
 
+-- Crosswalks around West T-Junction (-55, 200) (All connecting sides: North, South, East)
+createCrosswalkNS(-55, 200 - crossRoadW/2 - 2.5, crossRoadW) -- North side
+createCrosswalkNS(-55, 200 + crossRoadW/2 + 2.5, crossRoadW) -- South side
+createCrosswalkEW(-55 + crossRoadW/2 + 2.5, 200, crossRoadW)  -- East side
+
+-- Crosswalks around East T-Junction (55, 200) (All connecting sides: North, South, West)
+createCrosswalkNS(55, 200 - crossRoadW/2 - 2.5, crossRoadW)  -- North side
+createCrosswalkNS(55, 200 + crossRoadW/2 + 2.5, crossRoadW)  -- South side
+createCrosswalkEW(55 - crossRoadW/2 - 2.5, 200, crossRoadW)  -- West side
+
 -- Dashed Centerlines along streets
 local function createDashedLineNS(x: number, startZ: number, endZ: number)
     local curZ = startZ
