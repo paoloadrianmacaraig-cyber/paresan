@@ -80,6 +80,7 @@ local function buildPhilippineHighway6Lane()
         p.Color = col
         p.Material = mat or Enum.Material.SmoothPlastic
         p.Anchored = true
+        p.Locked = true
         p.CanCollide = if canCollide ~= nil then canCollide else true
         p.TopSurface = Enum.SurfaceType.Smooth
         p.BottomSurface = Enum.SurfaceType.Smooth
@@ -96,6 +97,7 @@ local function buildPhilippineHighway6Lane()
         p.Color = col
         p.Material = mat or Enum.Material.SmoothPlastic
         p.Anchored = true
+        p.Locked = true
         p.CanCollide = if canCollide ~= nil then canCollide else false
         p.TopSurface = Enum.SurfaceType.Smooth
         p.BottomSurface = Enum.SurfaceType.Smooth

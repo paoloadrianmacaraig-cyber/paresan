@@ -80,11 +80,13 @@ local function buildPhilippineStreetSystem(): string
         end
     end
 
-    -- Update CityBlocks to concrete finish
+    -- Update CityBlocks to concrete finish and lock them
     for _, g in ipairs(greyParts) do
         g.Parent = cityBlocksFolder
         g.Material = matConcrete
         g.Color = colSidewalk
+        g.Anchored = true
+        g.Locked = true
         g.TopSurface = Enum.SurfaceType.Smooth
         g.BottomSurface = Enum.SurfaceType.Smooth
         for _, s in ipairs(g:GetChildren()) do
@@ -125,6 +127,7 @@ local function buildPhilippineStreetSystem(): string
         p.Color = col
         p.Material = mat or matPaint
         p.Anchored = true
+        p.Locked = true
         p.CanCollide = if canCollide ~= nil then canCollide else false
         p.TopSurface = Enum.SurfaceType.Smooth
         p.BottomSurface = Enum.SurfaceType.Smooth
@@ -161,13 +164,14 @@ local function buildPhilippineStreetSystem(): string
         end
     end
 
-    -- Update road parts to expressway asphalt
+    -- Update road parts to expressway asphalt and lock them
     for i, r in ipairs(blackParts) do
         local p = r.part
         p.Name = string.format("Road_%s_%d", r.dir, i)
         p.Color = colAsphalt
         p.Material = matAsphalt
         p.Anchored = true
+        p.Locked = true
         p.CanCollide = true
         p.TopSurface = Enum.SurfaceType.Smooth
         p.BottomSurface = Enum.SurfaceType.Smooth
